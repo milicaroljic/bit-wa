@@ -5,7 +5,7 @@ var {getDataPostFake} = require("./data");
 const postJSONString = JSON.stringify(getDataPostFake(5));
 
 const hostname = '127.0.0.1';
-const port = 3001;
+const port = 3000;
 
 const server = http.createServer((req, res) => {
     res.statusCode = 200;

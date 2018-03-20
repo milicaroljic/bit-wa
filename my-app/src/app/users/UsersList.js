@@ -1,20 +1,13 @@
 import React from "react";
-import {UserCard} from "./UserCard";
-import {UserItem} from "./UserItem";
+import { UserCard } from "./UserCard";
+import { UserItem } from "./UserItem";
 
-// export const UsersList = ({data}) => {
-    
-//     return (
-//         <div>
-//             {data.map((user, index) => { return <UserCard key={index} data={user}/>})}
-//         </div>
-//     )
-// }
-
-export const UsersList = ({data}) => {
+export const UsersList = ({ data, isListView }) => {
     return (
         <div>
-            {data.map((user, index) => { return <UserItem key={index} data={user}/>})}
+            {data.map((user, index) => {
+                return isListView ? <UserItem key={index} data={user} /> : <UserCard key={index} data={user} />
+            })}
         </div>
     )
 }

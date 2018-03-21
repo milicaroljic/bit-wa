@@ -6,6 +6,7 @@ import { Main } from './Main';
 import { userService } from '../services/UserService';
 import { UsersList } from './users/UsersList';
 import { Search } from './partials/Search';
+import { Cube } from './partials/cubeLoader/Cube';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,6 +16,8 @@ class App extends React.Component {
       filteredUsers: [],
       isListView: localStorage.getItem("listView") === 'true',
       searchValue: "",
+      load: false
+      
     }
   }
 
@@ -23,7 +26,8 @@ class App extends React.Component {
       .then(usersList => {
         this.setState({
           users: usersList,
-          filteredUsers: usersList
+          filteredUsers: usersList,
+          load:true
         })
       })
   }
@@ -34,7 +38,7 @@ class App extends React.Component {
       .then(usersList => {
         this.setState({
           users: usersList,
-          filteredUsers: usersList
+          filteredUsers: usersList,
         })
       })
   }
@@ -65,7 +69,7 @@ class App extends React.Component {
       <div>
         <Header triggerView={this.onClickChangeView} isListView={this.state.isListView} search={this.searchOnChange} refreshUsers={this.onClickFetchUsers} />
         <Search onChange={this.searchOnChange}/>
-        <Main data={this.state.filteredUsers} isListView={this.state.isListView} />
+        {this.state.load? <Main data={this.state.filteredUsers} isListView={this.state.isListView} />:<Cube/>}
         <Footer />
       </div>
     )

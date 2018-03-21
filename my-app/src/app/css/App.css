@@ -1,0 +1,9 @@
+.female,
+.collection .collection-item.female {
+    background-color: #ffebee;
+}
+
+.input-field label {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}

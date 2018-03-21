@@ -1,9 +1,10 @@
 class User {
-    constructor ({name,email,dob,picture}) {
+    constructor ({name,email,dob,picture, gender}) {
         this.name = name;
         this.email = email;
         this.dob = dob;
         this.picture = picture;
+        this.gender = gender;
     }
 
     getDob(dob){

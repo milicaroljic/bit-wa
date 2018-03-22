@@ -67,7 +67,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header triggerView={this.onClickChangeView} isListView={this.state.isListView} search={this.searchOnChange} refreshUsers={this.onClickFetchUsers} />
+        <Header triggerView={this.onClickChangeView} isListView={this.state.isListView} search={this.searchOnChange} refreshUsers={this.onClickFetchUsers} hasMenu={true} />
         <Search onChange={this.searchOnChange}/>
         {this.state.load? <Main data={this.state.filteredUsers} isListView={this.state.isListView} />:<Cube/>}
         <Footer />

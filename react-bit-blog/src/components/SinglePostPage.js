@@ -10,8 +10,8 @@ const SinglePostPage = () => {
                 <Link to="/">Back</Link>
                 <div className="row">
                     <div className="col s12 m6">
-                        <div className="card blue-grey darken-1">
-                            <div className="card-content white-text">
+                        <div className="card">
+                            <div className="card-content">
                                 <span className="card-title">Post title 1</span>
                                 <Link to="/author/:id" > Author Name </Link>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero laudantium asperiores sequi voluptatum aliquid ut. Esse velit, accusantium quasi a culpa repudiandae dolor dicta deserunt porro incidunt tempore quaerat eaque.

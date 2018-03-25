@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'
-import { getAuthors } from '../services/AuthorService';
+import { authorService } from '../../services/AuthorService';
 import { AuthorItem } from './AuthorItem'
 
 class AuthorsPage extends React.Component {
@@ -10,15 +10,10 @@ class AuthorsPage extends React.Component {
     }
 
     componentDidMount() {
-        getAuthors()
+        authorService.fetchAuthors()
             .then(authors => this.setState({ authors }))
     }
 
-    addAuthors = () => {
-        return this.state.authors.map((authors, index) => {
-            return <AuthorItem authors={authors} key={index} />
-        })
-    }
 
     render() {
         return (
@@ -26,7 +21,7 @@ class AuthorsPage extends React.Component {
                 <div className="container">
                     <h3>Authors({this.state.authors.length})</h3>
                     <ul className="collection">
-                        {this.addAuthors()}
+                        <li className = "collection-item">{this.state.authors.map((author, index) => <AuthorItem  author={author} key={index} />)} </li>
                     </ul>
                 </div>
             </Fragment>

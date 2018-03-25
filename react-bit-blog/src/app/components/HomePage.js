@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { getPosts } from '../services/AuthorService'
+import { postService } from '../../services/PostService'
 import { PostItem } from './PostItem'
 
 class HomePage extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = { posts: [] }
-    }
+    };
 
     componentDidMount() {
-        getPosts()
+        postService.fetchPosts()
             .then(posts => this.setState({ posts }))
     }
 

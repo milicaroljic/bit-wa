@@ -18,11 +18,12 @@ const SinglePostPage = () => {
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, itaque! Maiores dicta natus quis temporibus cupiditate, quo delectus eaque aperiam! Ipsum dolore, praesentium sit suscipit dolor laudantium consectetur nisi voluptatem?
                                 </p>
                             </div>
-                            <div className="card-action">
-                                <p>Three more posts from same author</p>
-                                <a href="#">Title 10 - velit</a> <br/>
-                                <a href="#">Title 11 -eaque aperiam </a> <br/>
-                                <a href="#">Title 11 -eaque aperiam </a> <br/>
+                            <div className="card-content">
+                                <h3>Three more posts from same author</h3>
+                                <ul>
+                                    <li><Link to = "/post/:id">Post #id </Link> </li>
+                                </ul>
+                                
                             </div>
                         </div>
                     </div>

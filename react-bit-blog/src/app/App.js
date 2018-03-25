@@ -8,6 +8,7 @@ import { AboutPage } from './components/AboutPage'
 import { AuthorsPage } from './components/AuthorsPage'
 import { SingleAuthorPage } from './components/SingleAuthorPage'
 import { SinglePostPage } from './components/SinglePostPage'
+// import { CreatePost} from './components/' 
 
 
 class App extends Component {
@@ -17,9 +18,10 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/posts/:id" component={SinglePostPage} />
           <Route exact path="/authors" component={AuthorsPage} />
           <Route path="/author/:id" component={SingleAuthorPage} />
+          <Route path="/post/:id" component={SinglePostPage} />
+          {/* <Route exact path="/new" component={CreatePost} /> */}
           <Route exact path="/about" component={AboutPage} />
         </Switch>
         <Footer />

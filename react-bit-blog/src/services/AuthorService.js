@@ -1,27 +1,25 @@
-const getAuthors = () => {
-    return fetch("https://jsonplaceholder.typicode.com/users")
-        .then(response => response.json())
+import { Author } from "../entities/Author";
+import { url } from '../shared/constants';
 
+class AuthorService {
+
+    fetchAuthors = () => {
+        return fetch(url.authorsURL)
+            .then(response => response.json())
+            .then(authors => {
+                return authors.map(author => {
+                    return new Author(author);
+                });
+            });
+    }
+
+    fetchAuthor = (id) => {
+
+        return fetch(`${url.authorsURL}${id}`)
+            .then(response => response.json())
+            .then(author => new Author(author));
+
+    }
 }
 
-const getPosts = () => {
-    return fetch("https://jsonplaceholder.typicode.com/posts")
-        .then(response => response.json())
-
-}
-
-const getSingleAuthor = (authorID) => {
-    return fetch(`https://jsonplaceholder.typicode.com/users/${authorID}`)
-        .then(response => response.json())
-
-}
-
-const getSinglePost = (postID) => {
-    return fetch(`https://jsonplaceholder.typicode.com/posts/${postID}`)
-        .then(response => response.json())
-
-}
-
-
-
-export { getAuthors, getPosts, getSingleAuthor, getSinglePost }
+export const authorService = new AuthorService()
